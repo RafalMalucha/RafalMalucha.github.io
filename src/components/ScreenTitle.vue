@@ -4,7 +4,7 @@
   </h1>
 </template>
 
-<style>
+<style scoped>
 h1 {
   width: 100%;
   background-color: red;

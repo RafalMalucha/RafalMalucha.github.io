@@ -3,36 +3,37 @@ import AppLogo from '../components/images/AppLogo.vue'
 </script>
 
 <template>
-  <main>
-    <div id="logo">
-      <AppLogo />
-    </div>
-    <div id="start">
-      <p>Tutaj zamówisz jedzenie o każdej porze</p>
-      <button type="button" href="#/login" class="btn btn-danger">Zaczynamy!</button>
-    </div>
-    <div id="authors">
-      <h5>Autorzy:</h5>
-      <ul>
-        <li>Michał Warszawski</li>
-        <li>Rafał Małucha</li>
-        <li>Maksym Malichenko</li>
-      </ul>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <AppLogo />
+        <p>Tutaj zamówisz jedzenie o każdej porze</p>
+        <button type="button" href="#/login" class="btn btn-danger">Zaczynamy!</button>
+        <h5>Autorzy:</h5>
+        <p>Michał Warszawski</p>
+        <p>Rafał Małucha</p>
+        <p>Maksym Malichenko</p>
+      </div>
     </div>
   </main>
 </template>
 
-<style>
-main{
+<style scoped>
+main {
   text-align: center
 }
-#logo{
-  margin-bottom: 40px;
-}
-#authors{
-  margin-top: 40px;
-}
-ul{
-  list-style-type: none;
-}
+
+/* img {}
+
+/* @media only screen and (max-width: 900px) {
+  main {
+    padding-top: 50px;
+  }
+
+  img {
+    width: auto;
+    margin-top: 0px;
+    margin-bottom: 50px;
+  }
+} */
 </style>

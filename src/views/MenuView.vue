@@ -6,7 +6,7 @@ import ScreenTitle from '../components/ScreenTitle.vue'
 <template>
   <div>
     <ScreenTitle>
-      <template #title>ZUPY</template>
+      <template #title>ZUPY``</template>
     </ScreenTitle>
   </div>
   <div>
