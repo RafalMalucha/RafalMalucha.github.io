@@ -28,7 +28,6 @@ main {
   background-position: top;
   margin: 0;
   padding: 40px 0px 0px 0px;
-  ;
 }
 
 img {

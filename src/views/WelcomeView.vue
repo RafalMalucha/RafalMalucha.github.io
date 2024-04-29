@@ -25,9 +25,13 @@ import AppLogo from '../components/images/AppLogo.vue'
 
 <style scoped>
 main {
+  background-image: url("../assets/images/rectangular-background.png") !important;
+  background-repeat: no-repeat, repeat;
+  background-position: top;
+  margin: 0;
+  padding: 40px 0px 0px 0px;
   text-align: center;
   overflow: hidden;
-  padding-top: 150px;
 }
 
 #authors {
