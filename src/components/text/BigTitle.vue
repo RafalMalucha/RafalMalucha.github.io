@@ -7,8 +7,9 @@
 <style scoped>
 h1 {
   width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
+  color: #000000;
+  text-align: left;
+  padding: 40px 40px;
+  font-weight: bold;
 }
 </style>

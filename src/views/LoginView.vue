@@ -4,15 +4,17 @@ import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
-  <main class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <AppLogo />
-      </div>
-      <div class="col-md-6">
-        <div id="login-cart">
-          <h3>Zaloguj się</h3>
-          <LoginForm />
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <AppLogo />
+        </div>
+        <div class="col-md-6">
+          <div id="login-cart">
+            <h3>Zaloguj się</h3>
+            <LoginForm />
+          </div>
         </div>
       </div>
     </div>
@@ -21,7 +23,12 @@ import LoginForm from '../components/LoginForm.vue'
 
 <style scoped>
 main {
-  padding-top: 150px;
+  background-image: url("../assets/images/rectangular-background.png") !important;
+  background-repeat: no-repeat, repeat;
+  background-position: top;
+  margin: 0;
+  padding: 40px 0px 0px 0px;
+  ;
 }
 
 img {
@@ -34,8 +41,6 @@ img {
 #login-cart {
   width: 400px;
   margin: 0 auto;
-  padding: 80px 0px;
-  border: 1px solid #000;
 }
 
 h3 {

@@ -7,10 +7,11 @@ import ProductView from '../views/ProductView.vue'
 import CartView from '../views/CartView.vue'
 import PaymentView from '../views/PaymentView.vue'
 import WaitView from '../views/WaitView.vue'
+import AccountView from '../views/AccountView.vue'
+import NotificationsView from '../views/NotificationsView.vue'
 
 const router = createRouter({
-    history: createWebHistory(
-        import.meta.env.BASE_URL),
+    history: createWebHistory(),
     routes: [{
             path: '/',
             name: 'Welcome',
@@ -50,6 +51,16 @@ const router = createRouter({
             path: '/wait',
             name: 'Wait',
             component: WaitView
+        },
+        {
+            path: '/notifications',
+            name: 'Notifications',
+            component: NotificationsView
+        },
+        {
+            path: '/account',
+            name: 'Account',
+            component: AccountView
         },
         // {
         //   path: '/about',

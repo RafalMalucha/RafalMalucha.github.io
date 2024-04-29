@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 // import { auth } from './firebase.js'
-// import { router } from './router/index.js'
+
 </script>
 
 <template>

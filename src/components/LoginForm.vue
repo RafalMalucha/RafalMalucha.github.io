@@ -25,23 +25,23 @@ export default {
 </script>
 
 <template>
-        <form>
-            <div class="mb-3">
-                <label for="inputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="inputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword">
-            </div>
-            <button type="submit" class="btn btn-primary">ZALOGUJ</button>
-        </form>
+    <form>
+        <div class="mb-3">
+            <input type="email" class="form-control" id="inputEmail1" placeholder="E-mail">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+        <router-link :to="{ name: 'Home' }">
+            <button type="submit" class="btn">Zaloguj się</button>
+        </router-link>
+    </form>
 </template>
 
 <style>
-    form{
-        text-align: center;
-        width: 200px;
-        margin: 0 auto;
-    }
+form {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+}
 </style>

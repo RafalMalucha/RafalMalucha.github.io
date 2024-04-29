@@ -7,12 +7,17 @@ import AppLogo from '../components/images/AppLogo.vue'
     <div class="row">
       <div class="col-md-6">
         <AppLogo />
-        <p>Tutaj zamówisz jedzenie o każdej porze</p>
-        <button type="button" href="#/login" class="btn btn-danger">Zaczynamy!</button>
-        <h5>Autorzy:</h5>
-        <p>Michał Warszawski</p>
-        <p>Rafał Małucha</p>
-        <p>Maksym Malichenko</p>
+      </div>
+      <div class="col-md-6">
+        <router-link :to="{ name: 'Login' }">
+          <button type="button" class="btn">Start</button>
+        </router-link>
+        <div id="authors">
+          <h5>Autorzy:</h5>
+          <p>Michał Warszawski<br>
+            Rafał Małucha<br>
+            Maksym Malichenko</p>
+        </div>
       </div>
     </div>
   </main>
@@ -20,20 +25,22 @@ import AppLogo from '../components/images/AppLogo.vue'
 
 <style scoped>
 main {
-  text-align: center
+  text-align: center;
+  overflow: hidden;
+  padding-top: 150px;
 }
 
-/* img {}
+#authors {
+  margin-top: 100px;
+}
 
-/* @media only screen and (max-width: 900px) {
-  main {
-    padding-top: 50px;
-  }
+h5 {
+  font-weight: 600;
+}
 
-  img {
-    width: auto;
-    margin-top: 0px;
-    margin-bottom: 50px;
-  }
-} */
+@media only screen and (max-width: 900px) {
+    main {
+        padding-top: 50px;
+    }
+}
 </style>

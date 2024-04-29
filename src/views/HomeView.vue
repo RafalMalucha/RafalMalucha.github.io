@@ -1,24 +1,34 @@
 <script setup>
-import ScreenTitle from '../components/ScreenTitle.vue'
+import BigTitle from '../components/text/BigTitle.vue'
+import CategoryPanel from '../components/CategoryPanel.vue'
+import AppNavigation from '../components/AppNavigation.vue'
 </script>
 
 <template>
-  <div>
-    <ScreenTitle>
-      <template #title>MENU</template>
-    </ScreenTitle>
-  </div>
-  <div>
-    <!-- <MenuList /> -->
-  </div>
+  <main>
+    <div>
+      <BigTitle>
+        <template #title>Na co masz dzisiaj ochotę?</template>
+      </BigTitle>
+    </div>
+    <div id="categories">
+      <CategoryPanel>
+        <template #title>Zupy</template>
+      </CategoryPanel>
+      <CategoryPanel>
+        <template #title>Dania główne</template>
+      </CategoryPanel>
+      <CategoryPanel>
+        <template #title>Desery</template>
+      </CategoryPanel>
+    </div>
+  </main>
+  <AppNavigation></AppNavigation>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<style scoped>
+
+#categories {
+  margin-top: 20px;
 }
 </style>
