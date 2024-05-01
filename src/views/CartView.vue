@@ -1,14 +1,17 @@
 <script setup>
 import ReturnArrow from '../components/ReturnArrow.vue';
 import SmallTitle from '../components/text/SmallTitle.vue'
-import NavigationBar from '../components/NavigationBar.vue';
 import CartItem from '../components/CartItem.vue';
+import OrderCard from '../components/OrderCard.vue';
+import NavigationBar from '../components/NavigationBar.vue';
 </script>
 <template>
     <main class="background-main">
         <div class="container">
             <div class="row">
-                <ReturnArrow></ReturnArrow>
+                <router-link :to="{ name: 'Home' }">
+                    <ReturnArrow></ReturnArrow>
+                </router-link>
             </div>
             <div class="row">
                 <SmallTitle>
@@ -21,6 +24,9 @@ import CartItem from '../components/CartItem.vue';
                     <template #description> Bardzo dobra zupa</template>
                 </CartItem>
             </div>
+        </div>
+        <div class="row">
+            <OrderCard></OrderCard>
         </div>
     </main>
     <nav>

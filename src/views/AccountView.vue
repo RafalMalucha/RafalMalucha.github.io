@@ -8,7 +8,9 @@ import NavigationBar from '../components/NavigationBar.vue';
     <main class="background-main">
         <div class="container">
             <div class="row">
-                <ReturnArrow></ReturnArrow>
+                <router-link :to="{ name: 'Home' }">
+                    <ReturnArrow></ReturnArrow>
+                </router-link>
             </div>
             <div class="row">
                 <SmallTitle>
@@ -25,6 +27,4 @@ import NavigationBar from '../components/NavigationBar.vue';
     </nav>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

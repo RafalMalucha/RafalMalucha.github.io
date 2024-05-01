@@ -18,7 +18,7 @@ div {
 
 @media screen and (max-width: 900px) {
   img {
-    width: 350px;
+    height: 250px;
   }
 }
 </style>

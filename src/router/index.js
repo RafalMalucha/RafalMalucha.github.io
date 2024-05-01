@@ -9,6 +9,9 @@ import PaymentView from '../views/PaymentView.vue'
 import WaitView from '../views/WaitView.vue'
 import AccountView from '../views/AccountView.vue'
 import NotificationsView from '../views/NotificationsView.vue'
+import DeliveryView from '../views/DeliveryView.vue'
+import SummaryView from '../views/SummaryView.vue'
+import ThanksView from '../views/ThanksView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -33,24 +36,29 @@ const router = createRouter({
             component: MenuView
         },
         {
-            path: '/product',
-            name: 'Product',
-            component: ProductView
-        },
-        {
             path: '/cart',
             name: 'Cart',
             component: CartView
         },
         {
-            path: '/payment',
-            name: 'Payment',
-            component: PaymentView
+            path: '/product',
+            name: 'Product',
+            component: ProductView
         },
         {
-            path: '/wait',
-            name: 'Wait',
-            component: WaitView
+            path: '/delivery',
+            name: 'Delivery',
+            component: DeliveryView
+        },
+        {
+            path: '/summary',
+            name: 'Summary',
+            component: SummaryView
+        },
+        {
+            path: '/thanks',
+            name: 'Thanks',
+            component: ThanksView
         },
         {
             path: '/notifications',

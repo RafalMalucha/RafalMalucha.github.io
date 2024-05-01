@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card shadow">
         <img src="../assets/images/profile-photo.png" class="card-img-top" alt="Profile iamge">
         <div class="card-body">
             <h5 class="card-title">Imię i nazwisko</h5>
@@ -21,10 +21,11 @@
 .card {
     width: 60%;
     margin: 0 auto;
+    border-radius: 12px !important;
 }
 
 img {
-    width: 50%;
+    width: 250px;
     border-radius: 50%;
     margin: 20px auto 20px auto;
 }

@@ -40,6 +40,7 @@ img {
   margin: 0 auto;
   text-align: center;
   border: 1px solid #e5e5e5;
+  background-color: #ffffff;
   border-radius: 25px;
   padding: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);

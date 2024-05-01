@@ -1,17 +1,19 @@
 <template>
   <div class="col-md-4">
-    <div id="item">
-      <div>
-        <img class="img" src="../assets/images/menu_photo.png" alt="Notification icon" />
-      </div>
-      <div>
-        <h4>
-          <slot name="title"></slot>
-        </h4>
-        <p>
-          <slot name="description"></slot>
-        </p>
-      </div>
+    <div id="item" class="shadow">
+      <!-- <router-link :to="{ name: 'Product' }"> -->
+        <div>
+          <img class="img" src="../assets/images/menu_photo.png" alt="Notification icon" />
+        </div>
+        <div>
+          <h4>
+            <slot name="title"></slot>
+          </h4>
+          <p>
+            <slot name="description"></slot>
+          </p>
+        </div>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
@@ -24,8 +26,12 @@
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-  transition: box-shadow 0.3s ease;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#item:hover {
+  opacity: 0.8;
 }
 
 #item>div:nth-of-type(1) {

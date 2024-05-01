@@ -9,7 +9,9 @@ import MenuList from '../components/MenuList.vue'
     <div class="container">
       <div class="row">
         <div class="row">
-          <ReturnArrow></ReturnArrow>
+          <router-link :to="{ name: 'Home' }">
+            <ReturnArrow></ReturnArrow>
+          </router-link>
         </div>
         <BigTitle>
           <template #title>ZUPY</template>

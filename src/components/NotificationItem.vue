@@ -15,15 +15,14 @@
 </template>
 
 <style scoped>
-body {
-    background-color: #fcfcff;
-}
-
 #item {
     display: flex;
+    width: 95%;
+    margin: 0 auto;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px;
+    background-color: #ffffff;
     border: 1px solid #e5e5e5;
 }
 
@@ -47,6 +46,10 @@ img {
 }
 
 @media screen and (max-width: 900px) {
+
+    #item{
+        width: 90%;
+    }
 
     #item>div:nth-of-type(1) {
         width: 25%;
