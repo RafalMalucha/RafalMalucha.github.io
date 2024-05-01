@@ -14,19 +14,25 @@ import NavigationBar from '../components/NavigationBar.vue'
       </div>
       <div id="categories" class="row">
         <div class="col-md-4">
-          <CategoryPanel>
-            <template #title>Zupy</template>
-          </CategoryPanel>
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Zupy</template>
+            </CategoryPanel>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <CategoryPanel>
-            <template #title>Dania główne</template>
-          </CategoryPanel>
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Dania główne</template>
+            </CategoryPanel>
+          </router-link>
         </div>
         <div class="col-md-4">
-          <CategoryPanel>
-            <template #title>Desery</template>
-          </CategoryPanel>
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Desery</template>
+            </CategoryPanel>
+          </router-link>
         </div>
       </div>
     </div>
