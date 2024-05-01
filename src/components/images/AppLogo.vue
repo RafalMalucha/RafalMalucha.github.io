@@ -5,13 +5,20 @@
 </template>
 
 <style scoped>
-img{
-  width: 250px;
+img {
+  width: 350px;
 }
-  div{
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+div {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  img {
+    width: 350px;
   }
+}
 </style>

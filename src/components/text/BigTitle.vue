@@ -8,7 +8,6 @@
 h1 {
   width: 100%;
   color: #000000;
-  text-align: left;
   padding: 40px 40px;
   font-weight: bold;
 }

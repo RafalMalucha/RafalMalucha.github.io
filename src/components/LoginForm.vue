@@ -36,12 +36,28 @@ export default {
             <button type="submit" class="btn">Zaloguj się</button>
         </router-link>
     </form>
+    <p>lub skorzystaj z:</p>
+    <button class="btn google">GOOGLE</button>
 </template>
 
 <style>
 form {
     text-align: center;
-    width: 200px;
     margin: 0 auto;
+}
+
+p {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+button.google {
+    background-color: #ffffff !important;
+    color: #2a6fee !important;
+    font-weight: bold;
 }
 </style>

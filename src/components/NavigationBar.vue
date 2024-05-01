@@ -22,7 +22,6 @@ div {
     width: 100%;
     position: absolute;
     background-color: #ffffff;
-    ;
     border-top: 1px solid #e5e5e5;
     bottom: 0;
     display: flex;

@@ -30,6 +30,10 @@ a {
     text-decoration: none !important;
 }
 
+h3 {
+    text-align: left;
+}
+
 .scroll {
     max-height: 600px;
     padding-bottom: 20px;
@@ -44,6 +48,11 @@ a {
     }
     .background-main {
         background-image: url("../assets/images/triangular-background.png");
+        background-repeat: no-repeat, repeat;
+        background-position: top;
+    }
+    .background-main-2 {
+        background-image: url("../assets/images/rectangular-background.png");
         background-repeat: no-repeat, repeat;
         background-position: top;
     }

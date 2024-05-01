@@ -1,10 +1,11 @@
 <script setup>
 import AppLogo from '../components/images/AppLogo.vue'
+import ScreenTitle from '../components/text/BigTitle.vue'
 import LoginForm from '../components/LoginForm.vue'
 </script>
 
 <template>
-  <main>
+  <main class="background-main-2">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -12,10 +13,10 @@ import LoginForm from '../components/LoginForm.vue'
         </div>
         <div class="col-md-6">
           <div id="login-cart">
-            <h3>Zaloguj się</h3>
+            <ScreenTitle>
+              <template #title>Zaloguj się</template>
+            </ScreenTitle>
             <LoginForm />
-            <p>lub skorzystaj z:</p>
-            <button class="btn google">GOOGLE</button>
           </div>
         </div>
       </div>
@@ -25,12 +26,7 @@ import LoginForm from '../components/LoginForm.vue'
 
 <style scoped>
 main {
-  background-image: url("../assets/images/rectangular-background.png") !important;
-  background-repeat: no-repeat, repeat;
-  background-position: top;
-  margin: 0;
-  padding: 40px 0px 0px 0px;
-  text-align: center;
+  padding-top: 150px;
 }
 
 img {
@@ -42,26 +38,19 @@ img {
 #login-cart {
   width: 400px;
   margin: 0 auto;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
 }
 
 h3 {
   margin-bottom: 40px;
+  text-align: center;
 }
 
-button {
-  margin-top: 20px;
-}
-
-button.google{
-  background-color: #ffffff !important;
-  color: #2a6fee !important;
-  font-weight: bold;
-}
-
-p{
-  font-weight: bold;
-  margin-top: 20px;
-}
 @media only screen and (max-width: 900px) {
   main {
     padding-top: 50px;
@@ -75,6 +64,12 @@ p{
 
   #login-cart {
     width: 85%;
+  }
+
+  #login-cart {
+    border: none;
+    padding: 0px 20px;
+    box-shadow: none;
   }
 }
 </style>
