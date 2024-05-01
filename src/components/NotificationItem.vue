@@ -1,7 +1,7 @@
 <template>
     <div id="item">
         <div>
-            <img src="" alt="Notification icon" />
+            <img src="../assets/icons/checked.png" alt="Notification icon" />
         </div>
         <diV>
             <h4>
@@ -21,7 +21,7 @@ body {
 
 #item {
     display: flex;
-    margin: 20px 20px;
+    margin-bottom: 20px;
     border: 1px solid red;
     padding: 20px;
     border-radius: 12px;
@@ -30,14 +30,20 @@ body {
 }
 
 #item>div:nth-of-type(1) {
-    width: 25%;
+    width: 15%;
 }
 
 #item>div:nth-of-type(2) {
-    width: 75%;
+    width: 85%;
 }
 
 h4 {
     font-weight: bold;
+}
+
+img{
+    width: 32px;
+    margin-top: 16px;
+    margin-left: 6px;
 }
 </style>

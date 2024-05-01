@@ -14,6 +14,8 @@ import LoginForm from '../components/LoginForm.vue'
           <div id="login-cart">
             <h3>Zaloguj się</h3>
             <LoginForm />
+            <p>lub skorzystaj z:</p>
+            <button class="btn google">GOOGLE</button>
           </div>
         </div>
       </div>
@@ -28,10 +30,10 @@ main {
   background-position: top;
   margin: 0;
   padding: 40px 0px 0px 0px;
+  text-align: center;
 }
 
 img {
-  text-align: center;
   width: 350px;
   margin: 0 auto;
   margin-top: 100px;
@@ -44,13 +46,22 @@ img {
 
 h3 {
   margin-bottom: 40px;
-  text-align: center;
 }
 
 button {
   margin-top: 20px;
 }
 
+button.google{
+  background-color: #ffffff !important;
+  color: #2a6fee !important;
+  font-weight: bold;
+}
+
+p{
+  font-weight: bold;
+  margin-top: 20px;
+}
 @media only screen and (max-width: 900px) {
   main {
     padding-top: 50px;

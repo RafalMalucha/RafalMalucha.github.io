@@ -1,5 +1,6 @@
 <template>
-    <nav>
+    <div>
+        <div id="menu-items">
         <router-link :to="{ name: 'Home' }">
             <p>HOME</p>
         </router-link>
@@ -12,11 +13,12 @@
         <router-link :to="{ name: 'Notifications' }">
             <p>NOTI</p>
         </router-link>
-    </nav>
+    </div>
+    </div>
 </template>
 
 <style scoped>
-nav {
+div {
     width: 100%;
     position: absolute;
     background-color: #ffffff;;

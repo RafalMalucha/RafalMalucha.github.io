@@ -8,7 +8,7 @@
 
 <style scoped>
 div {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     margin-bottom: 20px;
     background-color: rgba(254, 173, 29, 0.1);

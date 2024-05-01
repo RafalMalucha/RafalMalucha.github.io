@@ -19,10 +19,12 @@ div {
     width: 45px !important;
     height: 45px !important;
     border-radius: 12px;
+    margin-bottom: 20px;
 }
 
 span {
     padding-top: 0px;
     margin-top: 0px;
 }
+
 </style>
