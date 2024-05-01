@@ -1,30 +1,25 @@
 <script setup>
-import MenuListItem from './MenuListItem.vue'
+import MenuListItem from '../components/MenuListItem.vue'
 </script>
 
 <template>
 
     <MenuListItem>
-        <template #icon>
-            <!-- <DocumentationIcon /> -->
-        </template>
-        <template #heading> Chłodnik z jajkiem</template>
-        Bardzo dobra zupa
+        <template #title> Chłodnik z jajkiem</template>
+        <template #description> Bardzo dobra zupa</template>
     </MenuListItem>
 
     <MenuListItem>
-        <template #icon>
-            <!-- <DocumentationIcon /> -->
-        </template>
-        <template #heading>Pomidorówka z makaronem</template>
-        Bardzo dobra zupa
+        <template #title>Pomidorówka z makaronem</template>
+        <template #description> Bardzo dobra zupa</template>
     </MenuListItem>
 
     <MenuListItem>
-        <template #icon>
-            <!-- <DocumentationIcon /> -->
-        </template>
-        <template #heading>Rosołek</template>
-        Bardzo dobra zupa
+        <template #title>Rosołek</template>
+        <template #description> Bardzo dobra zupa</template>
     </MenuListItem>
+
 </template>
+
+<style scoped>
+</style>

@@ -22,11 +22,9 @@ body {
 #item {
     display: flex;
     margin-bottom: 20px;
-    border: 1px solid red;
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #e5e5e5;
-
 }
 
 #item>div:nth-of-type(1) {

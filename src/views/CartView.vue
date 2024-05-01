@@ -2,6 +2,7 @@
 import ReturnArrow from '../components/ReturnArrow.vue';
 import SmallTitle from '../components/text/SmallTitle.vue'
 import NavigationBar from '../components/NavigationBar.vue';
+import CartItem from '../components/CartItem.vue';
 </script>
 <template>
     <main class="background-main">
@@ -15,7 +16,10 @@ import NavigationBar from '../components/NavigationBar.vue';
                 </SmallTitle>
             </div>
             <div class="row scroll">
-              
+                <CartItem>
+                    <template #title>Pomidorówka z makaronem</template>
+                    <template #description> Bardzo dobra zupa</template>
+                </CartItem>
             </div>
         </div>
     </main>
@@ -24,6 +28,4 @@ import NavigationBar from '../components/NavigationBar.vue';
     </nav>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

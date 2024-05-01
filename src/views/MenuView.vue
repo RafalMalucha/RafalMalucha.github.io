@@ -5,7 +5,7 @@ import MenuList from '../components/MenuList.vue'
 </script>
 
 <template>
-  <main>
+  <main class="background-main">
     <div class="container">
       <div class="row">
         <div class="row">
