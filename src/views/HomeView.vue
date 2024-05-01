@@ -32,9 +32,7 @@ import NavigationBar from '../components/NavigationBar.vue'
     </div>
   </main>
   <nav>
-    <div class="container-fluid">
-      <NavigationBar></NavigationBar>
-    </div>
+    <NavigationBar></NavigationBar>
   </nav>
 </template>
 

@@ -1,19 +1,19 @@
 <template>
     <div>
         <div id="menu-items">
-        <router-link :to="{ name: 'Home' }">
-            <p>HOME</p>
-        </router-link>
-        <router-link :to="{ name: 'Account' }">
-            <p>ACCO</p>
-        </router-link>
-        <router-link :to="{ name: 'Cart' }">
-            <p>CART</p>
-        </router-link>
-        <router-link :to="{ name: 'Notifications' }">
-            <p>NOTI</p>
-        </router-link>
-    </div>
+            <router-link :to="{ name: 'Home' }">
+                <p>HOME</p>
+            </router-link>
+            <router-link :to="{ name: 'Cart' }">
+                <p>CART</p>
+            </router-link>
+            <router-link :to="{ name: 'Account' }">
+                <p>ACCO</p>
+            </router-link>
+            <router-link :to="{ name: 'Notifications' }">
+                <p>NOTI</p>
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -21,7 +21,8 @@
 div {
     width: 100%;
     position: absolute;
-    background-color: #ffffff;;
+    background-color: #ffffff;
+    ;
     border-top: 1px solid #e5e5e5;
     bottom: 0;
     display: flex;
@@ -34,7 +35,7 @@ p {
     padding: 10px 15px;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #eafaf2;  
+    background-color: #eafaf2;
     border-radius: 12px;
     border: 1px solid #e5e5e5;
     color: #1ec47a;

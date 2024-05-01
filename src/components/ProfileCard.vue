@@ -19,8 +19,25 @@
 
 <style scoped>
 .card {
-    width: 90%;
+    width: 60%;
     margin: 0 auto;
-    margin-top: 40px;
+}
+
+img {
+    width: 50%;
+    border-radius: 50%;
+    margin: 20px auto 20px auto;
+}
+
+@media screen and (max-width: 900px) {
+    .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    img {
+        width: 60%;
+    }
+
 }
 </style>

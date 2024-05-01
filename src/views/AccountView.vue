@@ -5,7 +5,7 @@ import ProfileCard from '../components/ProfileCard.vue'
 import NavigationBar from '../components/NavigationBar.vue';
 </script>
 <template>
-    <main>
+    <main class="background-main">
         <div class="container">
             <div class="row">
                 <ReturnArrow></ReturnArrow>
@@ -15,8 +15,8 @@ import NavigationBar from '../components/NavigationBar.vue';
                     <template #title>Twoje konto</template>
                 </SmallTitle>
             </div>
-            <div class="row">
-                <!-- <ProfileCard></ProfileCard> -->
+            <div class="row scroll">
+                <ProfileCard></ProfileCard>
             </div>
         </div>
     </main>
@@ -26,16 +26,5 @@ import NavigationBar from '../components/NavigationBar.vue';
 </template>
 
 <style scoped>
-main {
-    margin: 0;
-    padding: 40px 0px 0px 0px;
-}
 
-@media screen and (max-width: 900px) {
-    main {
-        background-image: url("../assets/images/triangular-background.png");
-        background-repeat: no-repeat, repeat;
-        background-position: top;
-    }
-}
 </style>

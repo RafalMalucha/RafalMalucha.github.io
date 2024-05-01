@@ -9,7 +9,8 @@ body {
 }
 
 main {
-    padding-top: 40px;
+    margin: 0;
+    padding-top: 40px
 }
 
 button {
@@ -29,4 +30,21 @@ a {
     text-decoration: none !important;
 }
 
-@media only screen and (max-width: 900px) {}
+.scroll {
+    max-height: 600px;
+    padding-bottom: 20px;
+    margin-top: 40px;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 900px) {
+    .scroll {
+        max-height: 500px;
+        padding-bottom: 20px
+    }
+    .background-main {
+        background-image: url("../assets/images/triangular-background.png");
+        background-repeat: no-repeat, repeat;
+        background-position: top;
+    }
+}

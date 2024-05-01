@@ -31,6 +31,7 @@ body {
 
 #item>div:nth-of-type(1) {
     width: 15%;
+    text-align: center;
 }
 
 #item>div:nth-of-type(2) {
@@ -38,12 +39,24 @@ body {
 }
 
 h4 {
+    font-size: 1.3rem;
     font-weight: bold;
 }
 
-img{
+img {
     width: 32px;
     margin-top: 16px;
-    margin-left: 6px;
+}
+
+@media screen and (max-width: 900px) {
+
+    #item>div:nth-of-type(1) {
+        width: 25%;
+    }
+
+    #item>div:nth-of-type(2) {
+        width: 75%;
+    }
+
 }
 </style>

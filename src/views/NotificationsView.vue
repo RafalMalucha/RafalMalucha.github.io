@@ -6,15 +6,17 @@ import NavigationBar from '../components/NavigationBar.vue';
 </script>
 
 <template>
-    <main>
+    <main class="background-main">
         <div class="container">
-            <div>
+            <div class="row">
                 <ReturnArrow></ReturnArrow>
+            </div>
+            <div class="row">
                 <SmallTitle>
                     <template #title>Powiadomienia</template>
                 </SmallTitle>
             </div>
-            <div id="notifications-container">
+            <div class="row scroll">
                 <NotificationItem>
                     <template #title>Tytuł powiadomienia</template>
                     <template #description>Treść powiadomienia</template>
@@ -52,29 +54,4 @@ import NavigationBar from '../components/NavigationBar.vue';
     </nav>
 </template>
 
-<style scoped>
-main {
-    margin: 0;
-    padding: 40px 0px 0px 0px;
-}
-
-#notifications-container {
-    max-height: 600px;
-    padding-bottom: 20px;
-    margin-top: 40px;
-    overflow-y: scroll;
-}
-
-@media screen and (max-width: 900px) {
-    #notifications-container {
-        max-height: 500px;
-        padding-bottom: 20px
-    }
-
-    main {
-        background-image: url("../assets/images/triangular-background.png");
-        background-repeat: no-repeat, repeat;
-        background-position: top;
-    }
-}
-</style>
+<style scoped></style>
