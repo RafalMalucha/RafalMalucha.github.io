@@ -4,7 +4,7 @@
             <ul class="list-group">
                 <li class="list-group-item">Adres e-amil</li>
                 <li class="list-group-item">Numer telefonu</li>
-                <li class="list-group-item">Ades do dostawy</li>
+                <li class="list-group-item">Adres do dostawy</li>
             </ul>
         </div>
         <div class="card-body">
