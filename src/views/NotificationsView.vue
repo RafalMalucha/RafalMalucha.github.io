@@ -1,8 +1,8 @@
 <script setup>
 import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
-import NotificationItem from '../components/NotificationItem.vue';
-import NavigationBar from '../components/NavigationBar.vue';
+import NotificationItem from '../components/NotificationItem.vue'
+import NavigationBar from '../components/NavigationBar.vue'
 </script>
 
 <template>

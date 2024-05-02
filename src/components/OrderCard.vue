@@ -24,7 +24,6 @@
     background-color: #15BE77 !important;
 }
 
-
 @media screen and (max-width: 900px) {
     .card {
         width: 90%;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <span>
-            < </span>
+            &lt; </span>
     </div>
 </template>
 

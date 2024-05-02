@@ -1,7 +1,7 @@
 <script setup>
 import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
-import MapArea from '../components/MapArea.vue';
+import MapArea from '../components/MapArea.vue'
 </script>
 
 <template>

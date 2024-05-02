@@ -1,16 +1,12 @@
-import './assets/main.css'
-// Bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle';
-// PWA
-// import '@/registerServiceWorker.js';
-
 import { createApp } from 'vue'
 import App from './App.vue'
+import './assets/main.css'
+// Bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+// PWA
+import './registerServiceWorker'
+// Router
 import router from './router'
 
-const app = createApp(App)
-
-app.use(router)
-
-app.mount('#app')
+createApp(App).use(router).mount('#app')

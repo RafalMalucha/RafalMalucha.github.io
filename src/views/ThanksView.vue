@@ -1,5 +1,5 @@
 <script setup>
-import BigTitle from '../components/text/BigTitle.vue';
+import BigTitle from '../components/text/BigTitle.vue'
 </script>
 
 <template>

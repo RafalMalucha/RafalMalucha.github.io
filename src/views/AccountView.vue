@@ -1,8 +1,8 @@
 <script setup>
-import ReturnArrow from '../components/ReturnArrow.vue';
+import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
 import ProfileCard from '../components/ProfileCard.vue'
-import NavigationBar from '../components/NavigationBar.vue';
+import NavigationBar from '../components/NavigationBar.vue'
 </script>
 <template>
     <main class="background-main">
