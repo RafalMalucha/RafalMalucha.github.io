@@ -1,18 +1,49 @@
+<script setup>
+import BigTitle from '../components/text/BigTitle.vue'
+import CategoryPanel from '../components/CategoryPanel.vue'
+import NavigationBar from '../components/NavigationBar.vue'
+</script>
+
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main>
+    <div class="container">
+      <div class="row">
+        <BigTitle>
+          <template #title>Na co masz dzisiaj ochotę?</template>
+        </BigTitle>
+      </div>
+      <div id="categories" class="row">
+        <div class="col-md-4">
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Zupy</template>
+            </CategoryPanel>
+          </router-link>
+        </div>
+        <div class="col-md-4">
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Dania główne</template>
+            </CategoryPanel>
+          </router-link>
+        </div>
+        <div class="col-md-4">
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Desery</template>
+            </CategoryPanel>
+          </router-link>
+        </div>
+      </div>
+    </div>
+  </main>
+  <nav>
+    <NavigationBar></NavigationBar>
+  </nav>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+<style scoped>
+#categories {
+  margin-top: 20px;
 }
-</script>
+</style>
