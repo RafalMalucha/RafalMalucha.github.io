@@ -3,10 +3,10 @@ import WelcomeView from '../views/WelcomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import HomeView from '../views/HomeView.vue'
 import MenuView from '../views/MenuView.vue'
-import ProductView from '../views/ProductView.vue'
-import CartView from '../views/CartView.vue'
+// import ProductView from '../views/ProductView.vue'
+// import CartView from '../views/CartView.vue'
 import AccountView from '../views/AccountView.vue'
-import NotificationsView from '../views/NotificationsView.vue'
+// import NotificationsView from '../views/NotificationsView.vue'
 import DeliveryView from '../views/DeliveryView.vue'
 import SummaryView from '../views/SummaryView.vue'
 import ThanksView from '../views/ThanksView.vue'
@@ -31,16 +31,16 @@ const routes = [{
   name: 'Menu',
   component: MenuView
 },
-{
-  path: '/cart',
-  name: 'Cart',
-  component: CartView
-},
-{
-  path: '/product',
-  name: 'Product',
-  component: ProductView
-},
+// {
+//   path: '/cart',
+//   name: 'Cart',
+//   component: CartView
+// },
+// {
+//   path: '/product',
+//   name: 'Product',
+//   component: ProductView
+// },
 {
   path: '/delivery',
   name: 'Delivery',
@@ -56,11 +56,11 @@ const routes = [{
   name: 'Thanks',
   component: ThanksView
 },
-{
-  path: '/notifications',
-  name: 'Notifications',
-  component: NotificationsView
-},
+// {
+//   path: '/notifications',
+//   name: 'Notifications',
+//   component: NotificationsView
+// },
 {
   path: '/account',
   name: 'Account',

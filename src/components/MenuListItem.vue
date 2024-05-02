@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-4">
     <div id="item" class="shadow">
-      <!-- <router-link :to="{ name: 'Product' }"> -->
+      <!-- <router-link :to="{ name: 'Delivery' }"> -->
         <div>
           <img class="img" src="../assets/images/menu_photo.png" alt="Notification icon" />
         </div>
@@ -26,8 +26,8 @@
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #e5e5e5;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 #item:hover {

@@ -5,18 +5,18 @@
                 <img src="../assets/icons/home-icon.png" al="Home icon" />
                 <p>Oferta</p>
             </router-link>
-            <router-link :to="{ name: 'Cart' }">
+            <!-- <router-link :to="{ name: 'Cart' }">
                 <img src="../assets/icons/cart-icon.png" al="Home icon" />
                 <p>Koszyk</p>
-            </router-link>
+            </router-link> -->
             <router-link :to="{ name: 'Account' }">
                 <img src="../assets/icons/account-icon.png" al="Home icon" />
                 <p>Konto</p>
             </router-link>
-            <router-link :to="{ name: 'Notifications' }">
+            <!-- <router-link :to="{ name: 'Notifications' }">
                 <img src="../assets/icons/notification-icon.png" al="Home icon" />
                 <p>Powiadomienia</p>
-            </router-link>
+            </router-link> -->
         </div>
     </div>
 </template>
@@ -25,8 +25,8 @@
 div {
     width: 100%;
     position: absolute;
-    background-color: #ffffff;
-    border-top: 1px solid #e5e5e5;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-light-grey);
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ img {
 p {
     display: inline-block;
     margin-left: 15px;
-    color: #000000;
+    color: var(--color-black);
     font-weight: bold;
 }
 

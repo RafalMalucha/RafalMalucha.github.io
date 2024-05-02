@@ -21,7 +21,7 @@ import SmallTitle from '../components/text/SmallTitle.vue'
             </div>
             <div class="row">
                 <router-link :to="{ name: 'Thanks' }">
-                    <button class="btn next-button">> Złóź zamówienie </button>
+                    <button class="btn next-button">&lt; Złóź zamówienie &lt; </button>
                 </router-link>
             </div>
         </div>
@@ -30,6 +30,9 @@ import SmallTitle from '../components/text/SmallTitle.vue'
 </template>
 
 <style scoped>
+h2{
+    text-align: center
+}
 a {
     text-align: center;
 }

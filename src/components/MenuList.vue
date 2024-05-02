@@ -18,12 +18,13 @@ import MenuListItem from '../components/MenuListItem.vue'
             <template #title>Rosołek</template>
             <template #description> Bardzo dobra zupa</template>
         </MenuListItem>
+
     </div>
 </template>
 
 <style scoped>
 @media screen and (max-width: 900px) {
-    div{
+    div {
         width: 97%;
         margin: 0 auto;
     }

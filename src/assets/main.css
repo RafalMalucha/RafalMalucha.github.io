@@ -5,8 +5,7 @@
 }
 
 body {
-    background-color: #fcfcff !important;
-    /* background-color: #e6e6ff !important; */
+    background-color: var(--background-color) !important;
 }
 
 main {
@@ -17,8 +16,8 @@ main {
 
 button {
     min-width: 120px;
-    color: #ffffff !important;
-    background-color: #26c87c !important;
+    color: var(--color-white) !important;
+    background-color: var(--color-green) !important;
     padding: 10px !important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.3s ease;
@@ -50,7 +49,7 @@ h3 {
 }
 
 .shadow {
-    box-shadow: 0 4px 4px rgba(218, 99, 23, 1);
+    box-shadow: 0 4px 4px var(--color-orange);
     transition: box-shadow 0.3s ease;
 }
 

@@ -47,6 +47,10 @@ main {
     padding-top: 50px;
   }
 
+  .row>div:nth-of-type(1) button {
+    margin-top: 100px;
+  }
+
   .row>div:nth-of-type(2) {
     text-align: center;
   }

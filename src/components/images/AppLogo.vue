@@ -17,8 +17,8 @@
   }
 
   @media screen and (max-width: 900px) {
-    img {
-      height: 250px;
+    div {
+      height: 200px;
     }
   }
 </style>

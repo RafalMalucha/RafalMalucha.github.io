@@ -22,8 +22,8 @@
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 12px;
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light-grey);
 }
 
 #item>div:nth-of-type(1) {

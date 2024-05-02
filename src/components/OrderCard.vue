@@ -8,7 +8,7 @@
             </ul>
         </div>
         <div class="card-body">
-           <button>Złóż zamówienie</button>
+            <button>Złóż zamówienie</button>
         </div>
     </div>
 </template>
@@ -17,11 +17,11 @@
 .card {
     width: 60%;
     margin: 0 auto;
-    background-color: #15BE77;
+    background-color: var(--color-green);
 }
 
 .list-group-item {
-    background-color: #15BE77 !important;
+    background-color: var(--color-green) !important;
 }
 
 @media screen and (max-width: 900px) {

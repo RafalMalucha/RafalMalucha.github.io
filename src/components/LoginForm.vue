@@ -56,7 +56,7 @@ button {
 }
 
 button.google {
-    background-color: #ffffff !important;
+    background-color: var(--color-white) !important;
     color: #2a6fee !important;
     font-weight: bold;
 }

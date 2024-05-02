@@ -9,11 +9,11 @@ import NavigationBar from '../components/NavigationBar.vue'
     <div class="container">
       <div class="row">
         <BigTitle>
-          <template #title>Na co masz dzisiaj ochotę?</template>
+          <template #title>Witaj w RAMI App!</template>
         </BigTitle>
       </div>
       <div id="categories" class="row">
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <router-link :to="{ name: 'Menu' }">
             <CategoryPanel>
               <template #title>Zupy</template>
@@ -33,7 +33,14 @@ import NavigationBar from '../components/NavigationBar.vue'
               <template #title>Desery</template>
             </CategoryPanel>
           </router-link>
-        </div>
+        </div> -->
+        <div class="col">
+          <router-link :to="{ name: 'Menu' }">
+            <CategoryPanel>
+              <template #title>Zobacz kartę dań</template>
+            </CategoryPanel>
+          </router-link>
+        </div> 
       </div>
     </div>
   </main>

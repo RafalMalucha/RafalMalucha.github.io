@@ -3,14 +3,14 @@
 
 <template>
     <div id="map-container">
-        <div ref="map" style="height: 400px;"></div>
+        <!-- <div ref="map" style="height: 400px;"></div> -->
     </div>
 </template>
 
 <script>
 // import { ref, onMounted } from 'vue';
-// import '../assets/leaflet.css';
-// import L from '../assets/leaflet.css';
+// import './css/leaflet.css';
+// import L from 'leaflet';
 
 // export default {
 //     setup() {
@@ -32,7 +32,7 @@
 //                 }).addTo(map.value);
 
 //                 var ico = L.icon({
-//                     iconUrl: '../assets/icons/marker-icon-2x.png',
+//                     iconUrl: '../components/js/imagesarker-icon-2x.png',
 //                 })
 
 //                 L.marker([crd.latitude, crd.longitude], { icon: ico }).addTo(map.value);
@@ -40,9 +40,8 @@
 
 //             navigator.geolocation.getCurrentPosition(success,
 //                 position => {
-//                     console.log(position.coords.latitude);
-//                     // const lat = position.coords.latitude;
-//                     // const long = position.coords.longitude;
+//                     const lat = position.coords.latitude;
+//                     const long = position.coords.longitude;
 //                 },
 //                 error => {
 //                     console.log(error.message);
@@ -54,16 +53,16 @@
 // };
 </script>
 
-<style>
+<!-- <style>
 #map-container {
     height: 100%;
 }
-</style>
+</style> -->
 <style scoped>
 div {
     height: 600px;
-    background-color: green;
-    border: 1px solid #e5e5e5;
+    background-color: (green);
+    border: 1px solid var(--color-light-grey);
     border-radius: 12px;
 }
 
