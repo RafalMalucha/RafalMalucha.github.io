@@ -8,49 +8,67 @@
 </template>
 
 <script>
-// import { ref, onMounted } from 'vue';
-// import '../assets/leaflet.css';
-// import L from '../assets/leaflet.js';
+import { ref, onMounted } from 'vue';
+import '../assets/leaflet.css';
+import L from '../assets/leaflet.js';
 
-// export default {
-//     setup() {
-//         var map = ref(null);
+export default {
+    setup() {
+        var map = ref(null);
 
-//         onMounted(() => {
-//             function success(pos) {
-//                 const crd = pos.coords;
+        var LeafIcon = L.Icon.extend({
+            options: {
+            iconSize:     [38, 95],
+            shadowSize:   [50, 64],
+            iconAnchor:   [22, 94],
+            shadowAnchor: [4, 62],
+            popupAnchor:  [-3, -76]
+            }
+        });
 
-//                 console.log("Your current position is:");
-//                 console.log(`Latitude : ${crd.latitude}`);
-//                 console.log(`Longitude: ${crd.longitude}`);
-//                 console.log(`More or less ${crd.accuracy} meters.`);
+        var greenIcon = new LeafIcon({
+            iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+            shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
+        })
 
-//                 map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
+        onMounted(() => {
+            function success(pos) {
+                const crd = pos.coords;
 
-//                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//                     attribution: '© OpenStreetMap contributors'
-//                 }).addTo(map.value);
+                console.log(crd);
 
-//                 var ico = L.icon({
-//                     iconUrl: '../components/js/imagesarker-icon-2x.png',
-//                 })
+                console.log("Your current position is:");
+                console.log(`Latitude : ${crd.latitude}`);
+                console.log(`Longitude: ${crd.longitude}`);
+                console.log(`More or less ${crd.accuracy} meters.`);
 
-//                 L.marker([crd.latitude, crd.longitude], { icon: ico }).addTo(map.value);
-//             }
+                map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
+    
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+                }).addTo(map.value);
 
-//             navigator.geolocation.getCurrentPosition(success,
-//                 position => {
-//                     const lat = position.coords.latitude;
-//                     const long = position.coords.longitude;
-//                 },
-//                 error => {
-//                     console.log(error.message);
-//                 },)
-//         });
+                L.marker(
+                    [crd.latitude, crd.longitude], {
+                        icon: greenIcon,
+                        draggable: true
+                    }
+                ).addTo(map.value);
+            }
 
-//         return { map };
-//     }
-// };
+            navigator.geolocation.getCurrentPosition(success,
+                position => {
+                    //console.log(position.coords.latitude);
+                    //console.log(position.coords.longitude);
+                },
+                error => {
+                    console.log(error.message);
+                },)
+        });
+
+        return { map };
+    }
+};
 </script>
 
 <style>
