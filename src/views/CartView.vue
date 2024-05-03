@@ -5,6 +5,7 @@ import CartItem from '../components/CartItem.vue'
 import OrderCard from '../components/OrderCard.vue'
 import NavigationBar from '../components/NavigationBar.vue'
 </script>
+
 <template>
     <main class="background-main">
         <div class="container">

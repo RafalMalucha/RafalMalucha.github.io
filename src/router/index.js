@@ -42,7 +42,7 @@ const routes = [
     path: '/summary',
     name: 'Summary',
     component: SummaryView,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
   },
   {
     path: '/thanks',

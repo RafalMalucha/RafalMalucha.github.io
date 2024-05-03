@@ -3,6 +3,12 @@ import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
 </script>
 
+<script>
+    export default {
+
+    }
+</script>
+
 <template>
     <main class="background-main">
         <div class="container">
@@ -17,7 +23,7 @@ import SmallTitle from '../components/text/SmallTitle.vue'
                 </SmallTitle>
             </div>
             <div class="row">
-                TUTAJ BĘDZIE PODSUMOWANIE ZAMÓWIENIA I ADRES DOSTAWY
+                Wybrana lokalizacja do dostawy {{ $route.query.location }}
             </div>
             <div class="row">
                 <router-link :to="{ name: 'Thanks' }">

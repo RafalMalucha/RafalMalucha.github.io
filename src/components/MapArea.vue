@@ -2,9 +2,12 @@
 </script>
 
 <template>
-    <div>
+    <div id="map-area">
         <div id="details">
-            <p>Wybrana lokalizacja: X Y </p>
+            <p>Wybrana lokalizacja: {{ markerPosition }} </p>
+        </div>
+        <div id="confirm">
+            <button class="btn" @click="confirmLocation">Potwierdź lokalizacje</button>
         </div>
         <div id="map-container">
             <div ref="map"></div>
@@ -13,13 +16,21 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, defineEmits } from 'vue';
 import '../assets/leaflet.css';
 import L from '../assets/leaflet.js';
 
+const emits = defineEmits(['update-data']);
+
 export default {
+    methods: {
+        confirmLocation(){
+             this.$emit("providedLocation", this.markerPosition);
+        }
+    },
     setup() {
         var map = ref(null);
+        var markerPosition = ref('');
 
         var LeafIcon = L.Icon.extend({
             options: {
@@ -42,6 +53,8 @@ export default {
 
                 console.log(crd);
 
+                markerPosition.value = `${crd.latitude}, ${crd.longitude}`
+
                 map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -59,6 +72,7 @@ export default {
                     var marker = event.target;
                     var position = marker.getLatLng();
                     console.log('Marker dragged to:', position);
+                    markerPosition.value = `${position.lat}, ${position.lng}`;
                 });
             }
 
@@ -69,15 +83,23 @@ export default {
                 },
                 error => {
                     console.log(error.message);
-                },)
+                })
         });
 
-        return { map };
+        return { map, markerPosition };
     }
 };
 </script>
 
 <style scoped>
+#map-area {
+    padding-bottom: 40px
+}
+
+#confirm {
+    padding: 10px
+}
+
 #map-container {
     height: 100%;
     border: 1px solid var(--color-light-grey);

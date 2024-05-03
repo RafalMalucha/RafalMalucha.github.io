@@ -1,7 +1,24 @@
 <script setup>
 import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
-import MapArea from '../components/MapArea.vue'
+</script>
+
+<script>
+import { ref } from 'vue';
+import MapArea from '../components/MapArea.vue';
+
+var confirmedLocation = ref('');
+
+export default {
+    methods: {
+        getLocation(location) {
+            confirmedLocation.value = location
+        }
+    },
+    components: {
+        MapArea
+  }
+};
 </script>
 
 <template>
@@ -18,12 +35,15 @@ import MapArea from '../components/MapArea.vue'
                 </SmallTitle>
             </div>
             <div class="row">
-                <MapArea></MapArea>
+                <MapArea @providedLocation="getLocation"/>
             </div>
             <div class="row">
-                <router-link :to="{ name: 'Summary' }">
+                <router-link :to="{ name: 'Summary', query: {location: confirmedLocation} }">
                     <button class="btn next-button">Przejdź dalej</button>
                 </router-link>
+            </div>
+            <div class="row">
+                <p>Potwierdzona lokalizacja: {{ confirmedLocation }}</p>
             </div>
         </div>
     </main>
