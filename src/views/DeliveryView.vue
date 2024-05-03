@@ -38,18 +38,26 @@ export default {
                 <MapArea @providedLocation="getLocation"/>
             </div>
             <div class="row">
-                <router-link :to="{ name: 'Summary', query: {location: confirmedLocation} }">
-                    <button class="btn next-button">Przejdź dalej</button>
-                </router-link>
+                <div id="confirmed-location">
+                    <p>Potwierdzona lokalizacja: {{ confirmedLocation }}</p>
+                </div>
             </div>
-            <div class="row">
-                <p>Potwierdzona lokalizacja: {{ confirmedLocation }}</p>
+            <div v-if="confirmedLocation !== ''">
+                <div class="row">
+                    <router-link :to="{ name: 'Summary', query: {location: confirmedLocation} }">
+                        <button class="btn next-button">Przejdź dalej</button>
+                    </router-link>
+                </div>
             </div>
         </div>
     </main>
 </template>
 
 <style scoped>
+#confirmed-location {
+    margin-top: 50px
+}
+
 a {
     text-align: center;
 }
