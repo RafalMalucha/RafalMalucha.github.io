@@ -12,7 +12,7 @@ const navigateUser = () => {
       // If user is logged in, redirect to Home
       router.push({ name: 'Home' });
     } else {
-      // If user is not logged in, redirect to Login
+      // If user is not logged in, redirect to Login 
       router.push({ name: 'Login' });
     }
   });
