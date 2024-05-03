@@ -20,8 +20,6 @@ import { ref, onMounted, defineEmits } from 'vue';
 import '../assets/leaflet.css';
 import L from '../assets/leaflet.js';
 
-const emits = defineEmits(['update-data']);
-
 export default {
     methods: {
         confirmLocation(){
@@ -51,8 +49,6 @@ export default {
             function success(pos) {
                 const crd = pos.coords;
 
-                console.log(crd);
-
                 markerPosition.value = `${crd.latitude}, ${crd.longitude}`
 
                 map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
@@ -71,18 +67,14 @@ export default {
                 marker.on('dragend', function (event) {
                     var marker = event.target;
                     var position = marker.getLatLng();
-                    console.log('Marker dragged to:', position);
                     markerPosition.value = `${position.lat}, ${position.lng}`;
                 });
             }
 
             navigator.geolocation.getCurrentPosition(success,
-                position => {
-                    //console.log(position.coords.latitude);
-                    //console.log(position.coords.longitude);
-                },
+                position => {},
                 error => {
-                    console.log(error.message);
+                    console.log("nie powiodło sie");
                 })
         });
 
