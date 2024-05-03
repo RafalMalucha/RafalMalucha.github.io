@@ -3,14 +3,14 @@
 
 <template>
     <div id="map-container">
-        <!-- <div ref="map" style="height: 400px;"></div> -->
+        <div ref="map" style="height: 400px;"></div>
     </div>
 </template>
 
 <script>
 // import { ref, onMounted } from 'vue';
-// import './css/leaflet.css';
-// import L from 'leaflet';
+// import '../assets/leaflet.css';
+// import L from '../assets/leaflet.js';
 
 // export default {
 //     setup() {
@@ -53,11 +53,11 @@
 // };
 </script>
 
-<!-- <style>
+<style>
 #map-container {
     height: 100%;
 }
-</style> -->
+</style>
 <style scoped>
 div {
     height: 600px;
