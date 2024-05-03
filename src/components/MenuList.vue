@@ -1,46 +1,51 @@
 <script>
 import MenuListItem from '../components/MenuListItem.vue'
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import app from '../firebase';
 import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 export default defineComponent({
   name: 'MenuList',
+  components: {
+    MenuListItem
+  },
   setup() {
     const db = getFirestore(app);
+    const menuItems = ref([]);
+
     const loadData = async () => {
       const querySnapshot = await getDocs(collection(db, "ZUPY"));
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        const data = doc.data();
+        menuItems.value.push({
+          title: data.nazwa,
+          description: data.opis,
+          imageUrl: data.image_link,
+          cena: data.cena  // Fetch and store the price
+        });
       });
     };
 
     loadData();
 
-    return {};
+    return {
+      menuItems
+    };
   }
 });
 </script>
 
+
 <template>
- <div>
-        <MenuListItem>
-            <template #title> Chłodnik z jajkiem</template>
-            <template #description> Bardzo dobra zupa</template>
-        </MenuListItem>
-
-        <MenuListItem>
-            <template #title>Pomidorówka z makaronem</template>
-            <template #description> Bardzo dobra zupa</template>
-        </MenuListItem>
-
-        <MenuListItem>
-            <template #title>Rosołek</template>
-            <template #description> Bardzo dobra zupa</template>
-        </MenuListItem>
-    </div>
-    <h2>test</h2>
-</template>
+  <div>
+     <MenuListItem v-for="(item, index) in menuItems" :key="index"
+                   :imageUrl="item.imageUrl" :cena="item.cena">
+         <template #title>{{ item.title }}</template>
+         <template #description>{{ item.description }}</template>
+     </MenuListItem>
+  </div>
+ </template>
+ 
 
 <style scoped>
 @media screen and (max-width: 900px) {
