@@ -17,7 +17,7 @@ export default {
     },
     components: {
         MapArea
-  }
+    }
 };
 </script>
 
@@ -35,16 +35,16 @@ export default {
                 </SmallTitle>
             </div>
             <div class="row">
-                <MapArea @providedLocation="getLocation"/>
+                <MapArea @providedLocation="getLocation" />
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div id="confirmed-location">
                     <p>Potwierdzona lokalizacja: {{ confirmedLocation }}</p>
                 </div>
-            </div>
+            </div> -->
             <div v-if="confirmedLocation !== ''">
                 <div class="row">
-                    <router-link :to="{ name: 'Summary', query: {location: confirmedLocation} }">
+                    <router-link :to="{ name: 'Summary', query: { location: confirmedLocation } }">
                         <button class="btn next-button">Przejdź dalej</button>
                     </router-link>
                 </div>
@@ -61,7 +61,14 @@ export default {
 a {
     text-align: center;
 }
-.row:nth-of-type(4){
+
+.container>div:nth-of-type(4) {
     margin-top: 40px;
+}
+
+@media screen and (max-width: 900px) {
+    .container>div:nth-of-type(4) {
+        margin-top: 20px;
+    }
 }
 </style>
