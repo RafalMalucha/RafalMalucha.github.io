@@ -3,11 +3,13 @@
 
 <template>
     <div id="map-area">
-        <div id="details">
-            <p>Wybrana lokalizacja: {{ markerPosition }} </p>
-        </div>
-        <div id="confirm">
-            <button class="btn" @click="confirmLocation">Potwierdź lokalizacje</button>
+        <div>
+            <div id="details">
+                <p>Wybrana lokalizacja: {{ markerPosition }} </p>
+            </div>
+            <div id="confirm">
+                <button class="btn" @click="confirmLocation">Potwierdź</button>
+            </div>
         </div>
         <div id="map-container">
             <div ref="map"></div>
@@ -22,8 +24,8 @@ import L from '../assets/leaflet.js';
 
 export default {
     methods: {
-        confirmLocation(){
-             this.$emit("providedLocation", this.markerPosition);
+        confirmLocation() {
+            this.$emit("providedLocation", this.markerPosition);
         }
     },
     setup() {
@@ -88,8 +90,24 @@ export default {
     padding-bottom: 40px
 }
 
+#map-area>div:nth-of-type(1) {
+    display: flex !important;
+    flex-direction: row;
+}
+
+#details {
+    width: 50%;
+    padding: 20px;
+}
+
 #confirm {
+    width: 50%;
     padding: 10px
+}
+
+#confirm>button {
+    background-color: var(--color-light-grey) !important;
+    color: var(--color-black) !important;
 }
 
 #map-container {
@@ -99,17 +117,30 @@ export default {
 }
 
 #map-container>div {
-    height: 500px;
+    height: 400px;
 }
 
 p {
     font-size: 1.1rem;
     text-align: center;
+    margin-bottom: 0px;
 }
 
 @media screen and (max-width: 900px) {
     #map-container>div {
-        height: 350px;
+        height: 300px;
     }
+
+    #details {
+        width: 60%;
+        padding: 10px;
+    }
+
+    #confirm {
+        width: 40%;
+        padding: 5px;
+        margin-top: 10px;
+    }
+
 }
 </style>
