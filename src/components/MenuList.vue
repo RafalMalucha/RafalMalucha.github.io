@@ -11,13 +11,40 @@ export default defineComponent({
   },
   setup() {
     const db = getFirestore(app);
-    const menuItems = ref([]);
+    const soupItems = ref([]);
+    const mainDishItems = ref([]);
+    const dessertItems = ref([]);
 
     const loadData = async () => {
-      const querySnapshot = await getDocs(collection(db, "ZUPY"));
-      querySnapshot.forEach((doc) => {
+      // Load soups
+      const soupSnapshot = await getDocs(collection(db, "ZUPY"));
+      soupSnapshot.forEach((doc) => {
         const data = doc.data();
-        menuItems.value.push({
+        soupItems.value.push({
+          title: data.nazwa,
+          description: data.opis,
+          imageUrl: data.image_link,
+          price: data.price
+        });
+      });
+
+      // Load main dishes
+      const mainDishSnapshot = await getDocs(collection(db, "DANIA GŁÓWNE"));
+      mainDishSnapshot.forEach((doc) => {
+        const data = doc.data();
+        mainDishItems.value.push({
+          title: data.nazwa,
+          description: data.opis,
+          imageUrl: data.image_link,
+          price: data.price
+        });
+      });
+
+      // Load desserts
+      const dessertSnapshot = await getDocs(collection(db, "DESERY"));
+      dessertSnapshot.forEach((doc) => {
+        const data = doc.data();
+        dessertItems.value.push({
           title: data.nazwa,
           description: data.opis,
           imageUrl: data.image_link,
@@ -29,53 +56,43 @@ export default defineComponent({
     loadData();
 
     return {
-      menuItems
+      soupItems,
+      mainDishItems,
+      dessertItems
     };
   }
 });
 </script>
 
-
 <template>
-  <!-- Zupy -->
+ 
   <div class="row">
     <h3>Zupy</h3>
-  </div>
-
-  <div class="row">
-    <MenuListItem v-for="(item, index) in menuItems" :key="index" :imageUrl="item.imageUrl">
+    <MenuListItem v-for="(item, index) in soupItems" :key="'soup-' + index" :imageUrl="item.imageUrl">
       <template #title>{{ item.title }}</template>
       <template #description>{{ item.description }}</template>
       <template #price>{{ item.price }}</template>
     </MenuListItem>
   </div>
 
-  <!-- Dania główne -->
+  
   <div class="row">
     <h3>Dania główne</h3>
-  </div>
-  <div class="row">
-    <MenuListItem v-for="(item, index) in menuItems" :key="index" :imageUrl="item.imageUrl">
+    <MenuListItem v-for="(item, index) in mainDishItems" :key="'main-' + index" :imageUrl="item.imageUrl">
       <template #title>{{ item.title }}</template>
       <template #description>{{ item.description }}</template>
       <template #price>{{ item.price }}</template>
     </MenuListItem>
   </div>
 
-  <!-- Desery -->
+  
   <div class="row">
     <h3>Desery</h3>
-  </div>
-  <div class="row">
-    <!-- TODO Tutaj lista deserów -->
-  </div>
-
-  <!-- Napoje -->
-  <div class="row">
-    <h3>Napoje</h3>
-  </div>
-  <div class="row">
-    <!-- TODO Tutaj lista napojów -->
+    <MenuListItem v-for="(item, index) in dessertItems" :key="'dessert-' + index" :imageUrl="item.imageUrl">
+      <template #title>{{ item.title }}</template>
+      <template #description>{{ item.description }}</template>
+      <template #price>{{ item.price }}</template>
+    </MenuListItem>
   </div>
 </template>
 
