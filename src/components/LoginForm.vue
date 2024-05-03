@@ -44,15 +44,29 @@ export default defineComponent({
 </script>
 
 <template>
-    <form @submit="signIn">
-        <div class="mb-3">
-            <input type="email" class="form-control" id="inputEmail1" placeholder="E-mail">
-        </div>
-        <div class="mb-3">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        </div>
-        <button type="submit" class="btn">Zaloguj się</button>
-    </form>
-    <p>lub skorzystaj z:</p>
-    <button class="btn google" @click="signInWithGoogle">GOOGLE</button>
+  <form @submit="signIn">
+    <div class="mb-3">
+      <input type="email" class="form-control" id="inputEmail1" placeholder="E-mail">
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+    <button type="submit" class="btn">Zaloguj się</button>
+  </form>
+  <p>lub skorzystaj z:</p>
+  <button class="btn google" @click="signInWithGoogle">GOOGLE</button>
 </template>
+
+<style scoped>
+p {
+  margin-top: 40px;
+
+}
+
+.google {
+  color: blue !important;
+  background-color: white !important;
+  border: 1px solid blue !important;
+  margin-top: 0px;
+}
+</style>

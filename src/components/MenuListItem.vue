@@ -1,7 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
 
-// Define the props the component accepts
 const { imageUrl, cena } = defineProps({
   imageUrl: String,
   cena: String
@@ -9,10 +8,9 @@ const { imageUrl, cena } = defineProps({
 </script>
 
 <template>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div id="item" class="shadow">
       <div>
-        <!-- Use the imageUrl directly without 'props' -->
         <img class="img" :src="imageUrl" alt="Menu item photo" />
       </div>
       <div>
@@ -23,9 +21,10 @@ const { imageUrl, cena } = defineProps({
           <slot name="description"></slot>
         </p>
       </div>
-      <!-- Displaying the price directly from the cena variable -->
       <div class="price-tag">
-        {{ cena }} zł
+        <p>
+          <slot name="price"></slot> zł
+        </p>
       </div>
     </div>
   </div>
@@ -33,57 +32,70 @@ const { imageUrl, cena } = defineProps({
 
 <style scoped>
 #item {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  position: relative; /* Needed for absolute positioning of the price */
+  justify-content: space-between;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #e5e5e5;
   background-color: var(--color-white);
   color: var(--color-black);
+  text-align: center;
+  height: 280px;
 }
 
-.price-tag {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  color: var(--color-primary); /* Ensure this color stands out */
+#item>div:nth-of-type(2) {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.price-tag>p {
+  font-weight: 700 !important;
+  font-size: 1.4rem;
+  color: var(--color-green);
 }
 
 img {
-  width: 40%;  /* Restoring previous size, adjust as necessary */
+  height: 100px;
 }
 
 @media screen and (max-width: 900px) {
   #item {
     flex-direction: row;
-    padding: 0px;
+    padding: 5px;
+    height: 120px
   }
 
-  #item > div {
-    padding: 20px;
+  #item>div {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  #item > div:nth-of-type(1) {
-    width: 40%;
-    margin-bottom: 0px;
+  #item>div:nth-of-type(1) {
+    width: 30%;
+    align-items: center;
   }
 
-  #item > div:nth-of-type(2) {
-    width: 60%;
+  #item>div:nth-of-type(2) {
+    width: 50%;
+    padding-left: 10px;
+  }
+
+  #item>div:nth-of-type(3) {
+    width: 20%;
   }
 
   img {
-    width: 100%;  /* Ensuring full width in smaller screens */
+    height: auto;
+    width: 100%;
+  }
+
+  .price-tag > p{
+    font-size: 1.2rem;
   }
 }
 </style>
-
-
-
-

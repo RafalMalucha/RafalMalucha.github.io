@@ -14,7 +14,7 @@ import MenuList from '../components/MenuList.vue'
           </router-link>
         </div>
         <BigTitle>
-          <template #title>ZUPY</template>
+          <template #title>MENU</template>
         </BigTitle>
       </div>
       <div class="row">

@@ -1,4 +1,5 @@
 @import './base.css';
+
 #app {
     width: 100%;
     margin: 0 auto;
@@ -57,11 +58,13 @@ h3 {
     .scroll {
         margin-bottom: 60px
     }
+
     .background-main {
         background-image: url("../assets/images/triangular-background.png");
         background-repeat: no-repeat, repeat;
         background-position: top;
     }
+
     .background-main-2 {
         background-image: url("../assets/images/rectangular-background.png");
         background-repeat: no-repeat, repeat;

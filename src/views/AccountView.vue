@@ -14,7 +14,7 @@ import NavigationBar from '../components/NavigationBar.vue'
             </div>
             <div class="row">
                 <SmallTitle>
-                    <template #title>Twoje konto</template>
+                    <template #title>KONTO</template>
                 </SmallTitle>
             </div>
             <div class="row scroll">

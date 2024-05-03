@@ -32,11 +32,12 @@ div {
     justify-content: center;
     padding: 10px 20px 10px 20px;
     border-radius: 12px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease;
 }
 
 img {
     width: 32px;
-    padding-bottom: 8px;
 }
 
 p {
@@ -47,8 +48,7 @@ p {
 }
 
 a {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 15px 40px 5px 40px;
     margin-left: 40px;
     margin-right: 40px;
     background-color: #eafaf2;
@@ -71,8 +71,7 @@ a:hover {
     }
 
     a {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 0px 10px 0px 10px;
         margin-left: 0px;
         margin-right: 0px;
     }

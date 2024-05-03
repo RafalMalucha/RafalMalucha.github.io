@@ -37,7 +37,7 @@ import NavigationBar from '../components/NavigationBar.vue'
         <div class="col">
           <router-link :to="{ name: 'Menu' }">
             <CategoryPanel>
-              <template #title>Zobacz kartę dań</template>
+              <template #title>Zobacz nasze menu</template>
             </CategoryPanel>
           </router-link>
         </div> 
