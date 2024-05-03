@@ -40,7 +40,7 @@ const { imageUrl, cena } = defineProps({
   padding: 20px;
   border-radius: 12px;
   border: 1px solid #e5e5e5;
-  background-color: var(--color-white);
+  background-color: #eafaf2;
   color: var(--color-black);
   text-align: center;
   height: 280px;
@@ -65,7 +65,7 @@ img {
   #item {
     flex-direction: row;
     padding: 5px;
-    height: 120px
+    height: 120px;
   }
 
   #item>div {

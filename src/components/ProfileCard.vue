@@ -24,6 +24,10 @@
     border-radius: 12px !important;
 }
 
+.card-title, .card-text{
+    text-align: center;
+}
+
 img {
     width: 250px;
     border-radius: 50%;

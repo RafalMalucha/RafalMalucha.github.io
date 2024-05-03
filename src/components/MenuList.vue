@@ -65,39 +65,45 @@ export default defineComponent({
 </script>
 
 <template>
- 
-  <div class="row">
-    <h3>Zupy</h3>
-    <MenuListItem v-for="(item, index) in soupItems" :key="'soup-' + index" :imageUrl="item.imageUrl">
-      <template #title>{{ item.title }}</template>
-      <template #description>{{ item.description }}</template>
-      <template #price>{{ item.price }}</template>
-    </MenuListItem>
-  </div>
+  <div id="menu">
+    <div class="row">
+      <h3>Zupy</h3>
+      <MenuListItem v-for="(item, index) in soupItems" :key="'soup-' + index" :imageUrl="item.imageUrl">
+        <template #title>{{ item.title }}</template>
+        <template #description>{{ item.description }}</template>
+        <template #price>{{ item.price }}</template>
+      </MenuListItem>
+    </div>
 
-  
-  <div class="row">
-    <h3>Dania główne</h3>
-    <MenuListItem v-for="(item, index) in mainDishItems" :key="'main-' + index" :imageUrl="item.imageUrl">
-      <template #title>{{ item.title }}</template>
-      <template #description>{{ item.description }}</template>
-      <template #price>{{ item.price }}</template>
-    </MenuListItem>
-  </div>
 
-  
-  <div class="row">
-    <h3>Desery</h3>
-    <MenuListItem v-for="(item, index) in dessertItems" :key="'dessert-' + index" :imageUrl="item.imageUrl">
-      <template #title>{{ item.title }}</template>
-      <template #description>{{ item.description }}</template>
-      <template #price>{{ item.price }}</template>
-    </MenuListItem>
+    <div class="row">
+      <h3>Dania główne</h3>
+      <MenuListItem v-for="(item, index) in mainDishItems" :key="'main-' + index" :imageUrl="item.imageUrl">
+        <template #title>{{ item.title }}</template>
+        <template #description>{{ item.description }}</template>
+        <template #price>{{ item.price }}</template>
+      </MenuListItem>
+    </div>
+
+
+    <div class="row">
+      <h3>Desery</h3>
+      <MenuListItem v-for="(item, index) in dessertItems" :key="'dessert-' + index" :imageUrl="item.imageUrl">
+        <template #title>{{ item.title }}</template>
+        <template #description>{{ item.description }}</template>
+        <template #price>{{ item.price }}</template>
+      </MenuListItem>
+    </div>
+
   </div>
 </template>
 
 
 <style scoped>
+#menu{
+  margin-bottom: 40px;
+}
+
 h3 {
   width: 100%;
   color: #000000;
