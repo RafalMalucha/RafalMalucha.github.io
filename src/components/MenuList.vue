@@ -21,7 +21,7 @@ export default defineComponent({
           title: data.nazwa,
           description: data.opis,
           imageUrl: data.image_link,
-          cena: data.cena
+          price: data.price
         });
       });
     };
@@ -46,7 +46,7 @@ export default defineComponent({
     <MenuListItem v-for="(item, index) in menuItems" :key="index" :imageUrl="item.imageUrl">
       <template #title>{{ item.title }}</template>
       <template #description>{{ item.description }}</template>
-      <template #price>{{ item.cena }}</template>
+      <template #price>{{ item.price }}</template>
     </MenuListItem>
   </div>
 
@@ -58,7 +58,7 @@ export default defineComponent({
     <MenuListItem v-for="(item, index) in menuItems" :key="index" :imageUrl="item.imageUrl">
       <template #title>{{ item.title }}</template>
       <template #description>{{ item.description }}</template>
-      <template #price>{{ item.cena }}</template>
+      <template #price>{{ item.price }}</template>
     </MenuListItem>
   </div>
 
