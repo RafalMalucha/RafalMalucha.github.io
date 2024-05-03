@@ -3,11 +3,11 @@
 
 <template>
     <div>
-        <div id="map-container">
-            <div ref="map" style="height: 400px;"></div>
-        </div>
         <div id="details">
-            łeeeeeeeeee
+            <p>Wybrana lokalizacja: X Y </p>
+        </div>
+        <div id="map-container">
+            <div ref="map"></div>
         </div>
     </div>
 </template>
@@ -23,11 +23,11 @@ export default {
 
         var LeafIcon = L.Icon.extend({
             options: {
-            iconSize:     [38, 95],
-            shadowSize:   [50, 64],
-            iconAnchor:   [22, 94],
-            shadowAnchor: [4, 62],
-            popupAnchor:  [-3, -76]
+                iconSize: [38, 95],
+                shadowSize: [50, 64],
+                iconAnchor: [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor: [-3, -76]
             }
         });
 
@@ -43,19 +43,19 @@ export default {
                 console.log(crd);
 
                 map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
-    
+
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
+                    attribution: '© OpenStreetMap contributors'
                 }).addTo(map.value);
 
                 var marker = L.marker(
                     [crd.latitude, crd.longitude], {
-                        icon: greenIcon,
-                        draggable: true
-                    }
+                    icon: greenIcon,
+                    draggable: true
+                }
                 ).addTo(map.value);
 
-                marker.on('dragend', function(event) {
+                marker.on('dragend', function (event) {
                     var marker = event.target;
                     var position = marker.getLatLng();
                     console.log('Marker dragged to:', position);
@@ -77,22 +77,25 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #map-container {
     height: 100%;
-}
-</style>
-<style scoped>
-div {
-    height: 600px;
-    background-color: (green);
     border: 1px solid var(--color-light-grey);
     border-radius: 12px;
 }
 
+#map-container>div {
+    height: 500px;
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
 @media screen and (max-width: 900px) {
-    div {
-        height: 500px;
+    #map-container>div {
+        height: 350px;
     }
 }
 </style>

@@ -33,4 +33,7 @@ import MapArea from '../components/MapArea.vue'
 a {
     text-align: center;
 }
+.row:nth-of-type(4){
+    margin-top: 40px;
+}
 </style>
