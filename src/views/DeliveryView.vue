@@ -8,7 +8,7 @@ import MapArea from '../components/MapArea.vue'
     <main class="background-main">
         <div class="container">
             <div class="row">
-                <router-link :to="{ name: 'Cart' }">
+                <router-link :to="{ name: 'Menu' }">
                     <ReturnArrow></ReturnArrow>
                 </router-link>
             </div>
