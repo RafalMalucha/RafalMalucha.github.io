@@ -2,8 +2,13 @@
 </script>
 
 <template>
-    <div id="map-container">
-        <div ref="map" style="height: 400px;"></div>
+    <div>
+        <div id="map-container">
+            <div ref="map" style="height: 400px;"></div>
+        </div>
+        <div id="details">
+            łeeeeeeeeee
+        </div>
     </div>
 </template>
 
@@ -37,23 +42,24 @@ export default {
 
                 console.log(crd);
 
-                console.log("Your current position is:");
-                console.log(`Latitude : ${crd.latitude}`);
-                console.log(`Longitude: ${crd.longitude}`);
-                console.log(`More or less ${crd.accuracy} meters.`);
-
                 map.value = L.map('map-container').setView([crd.latitude, crd.longitude], 13);
     
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
                 }).addTo(map.value);
 
-                L.marker(
+                var marker = L.marker(
                     [crd.latitude, crd.longitude], {
                         icon: greenIcon,
                         draggable: true
                     }
                 ).addTo(map.value);
+
+                marker.on('dragend', function(event) {
+                    var marker = event.target;
+                    var position = marker.getLatLng();
+                    console.log('Marker dragged to:', position);
+                });
             }
 
             navigator.geolocation.getCurrentPosition(success,
