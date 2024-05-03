@@ -24,11 +24,15 @@ export default {
             </div>
             <div class="row">
                 <div class="item">
-                    <h4>Adres dostawy:</h4>
+                    <h5>Posiłek:</h5>
+                    <p>Tutaj nazwa + opis + cena</p>
+                </div>
+                <div class="item">
+                    <h5>Adres dostawy:</h5>
                     <p>Współrzędne: {{ $route.query.location }}</p>
                 </div>
                 <div class="item">
-                    <h4>Metoda płatności:</h4>
+                    <h5>Metoda płatności:</h5>
                     <p>Płatność realizujemy podczas dostawy</p>
                 </div>
             </div>
@@ -76,6 +80,9 @@ a {
     text-align: center;
 }
 
+.next-button{
+    margin-top: 10px !important;
+}
 @media screen and (max-width: 900px) {
     .item {
         flex-direction: column;
