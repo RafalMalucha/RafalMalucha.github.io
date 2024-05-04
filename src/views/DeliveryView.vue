@@ -44,7 +44,12 @@ export default {
             </div> -->
             <div v-if="confirmedLocation !== ''">
                 <div class="row">
-                    <router-link :to="{ name: 'Summary', query: { location: confirmedLocation } }">
+                    <router-link :to="{ name: 'Summary', query: { 
+                                                                    location: confirmedLocation, 
+                                                                    title: $route.query.title, 
+                                                                    description: $route.query.description, 
+                                                                    price: $route.query.price 
+                                                                }  }">
                         <button class="btn next-button">Przejdź dalej</button>
                     </router-link>
                 </div>

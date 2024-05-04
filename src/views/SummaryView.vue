@@ -1,6 +1,11 @@
 <script setup>
 import ReturnArrow from '../components/ReturnArrow.vue'
 import SmallTitle from '../components/text/SmallTitle.vue'
+import { useRoute } from 'vue-router';
+const route = useRoute();
+const title = route.query.title;
+const description = route.query.description;
+const price = route.query.price;
 </script>
 
 <script>
@@ -25,7 +30,7 @@ export default {
             <div class="row">
                 <div class="item">
                     <h5>Posiłek:</h5>
-                    <p>Tutaj nazwa + opis + cena</p>
+                    <p>{{ title }} + {{ description }} + {{ price }}</p>
                 </div>
                 <div class="item">
                     <h5>Adres dostawy:</h5>
