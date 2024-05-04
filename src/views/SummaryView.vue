@@ -19,6 +19,7 @@ const price = route.query.price;
                     Notification.requestPermission().then(permission => {
                         if (permission === 'granted') {
                             console.log('granted')
+                            window.navigator.vibrate([200, 200]);
                             // navigator.serviceWorker.register('service-worker.js')
                             // .then(registration => {
                             //     return registration.pushManager.subscribe({
@@ -71,11 +72,6 @@ const price = route.query.price;
                 <div class="item">
                     <h5>Metoda płatności:</h5>
                     <p>Płatność realizujemy podczas dostawy</p>
-                </div>
-            </div>
-            <div class="row">
-                <div id="price">
-                    <h3> Do zapłaty: {{ price }} zł</h3>
                 </div>
             </div>
             <div class="row">
