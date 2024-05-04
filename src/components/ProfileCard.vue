@@ -12,16 +12,38 @@
         <li class="list-group-item">{{ userEmail }}</li>
         <li class="list-group-item" v-if="!isEditing">{{ phoneNumber }}</li>
         <input v-if="isEditing" v-model="editablePhoneNumber" class="form-control" type="tel">
-        <!--  <li class="list-group-item">Adres do dostawy</li> -->
       </ul>
       <button @click="toggleEdit" class="btn">{{ isEditing ? 'Save' : 'Edit' }}</button>
+
+      <!-- Orders Table -->
+      <h5>Orders</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Dish</th>
+            <th>Price</th>
+            <th>Address</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="order in sortedOrders" :key="order.id">
+            <td>{{ order.ordered_dish }}</td>
+            <td>{{ order.order_price }}</td>
+            <td>{{ order.order_address }}</td>
+            <td>{{ order.order_datetime }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
 
+
+
 <script>
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 export default {
   name: 'ProfileCard',
@@ -34,8 +56,14 @@ export default {
       editableUserName: '',
       editableUserInfo: '',
       editablePhoneNumber: '',
-      isEditing: false
+      isEditing: false,
+      orders: []
     };
+  },
+  computed: {
+    sortedOrders() {
+      return this.orders.sort((a, b) => new Date(b.order_datetime) - new Date(a.order_datetime));
+    }
   },
   methods: {
     toggleEdit() {
@@ -79,6 +107,21 @@ export default {
         this.userInfo = userData.user_info || 'Brak opisu';
         this.phoneNumber = userData.phone_number || 'Brak numeru telefonu';
       }
+
+      await this.loadOrders(userId);
+    },
+    async loadOrders(userId) {
+      const db = getFirestore();
+      const auth = getAuth();
+      const user = auth.currentUser;
+
+      if (user) {
+        const ordersRef = collection(db, "orders");
+        const q = query(ordersRef, where("user_email", "==", user.email));
+        const querySnapshot = await getDocs(q);
+
+        this.orders = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      }
     }
   },
   created() {
@@ -87,6 +130,7 @@ export default {
       if (user) {
         this.userEmail = user.email;
         await this.loadInitialData(user.uid);
+        await this.loadOrders(user.uid);
       } else {
         this.userEmail = 'No email available';
       }
@@ -94,6 +138,8 @@ export default {
   }
 };
 </script>
+
+
 
 
 <style scoped>

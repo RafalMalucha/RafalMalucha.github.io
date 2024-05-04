@@ -1,13 +1,3 @@
-<script setup>
-import ReturnArrow from '../components/ReturnArrow.vue'
-import SmallTitle from '../components/text/SmallTitle.vue'
-import { useRoute } from 'vue-router';
-const route = useRoute();
-const title = route.query.title;
-const description = route.query.description;
-const price = route.query.price;
-</script>
-
 <script>
     export default {
         methods: {
@@ -52,15 +42,58 @@ const price = route.query.price;
                 </div>
             </div>
             <div class="row">
-                <router-link :to="{ name: 'Thanks', query: { location: $route.query.location} }">
+                <router-link @click="placeOrder" :to="{ name: 'Thanks', query: { location: $route.query.location} }">
                     <button class="btn next-button" @click="submitOrder"> Złóź zamówienie </button>
                 </router-link>
-                <p>Uwaga! Potwiedzonego zamówienia nie można anulować!</p>
+                <p>Uwaga! Potwierdzonego zamówienia nie można anulować!</p>
             </div>
         </div>
     </main>
-
 </template>
+
+<script setup>
+import firebase from '../firebase'; 
+import 'firebase/firestore';
+
+import ReturnArrow from '../components/ReturnArrow.vue';
+import SmallTitle from '../components/text/SmallTitle.vue';
+import { useRoute } from 'vue-router';
+import { ref } from 'vue';
+
+const route = useRoute();
+const description = route.query.description;
+const price = ref(route.query.price || 0);
+const title = route.query.title || '';
+
+const placeOrder = async () => {
+    try {
+        const user = firebase.auth().currentUser;
+        if (user) {
+            const userEmail = user.email;
+
+            // Get the current date and time
+            const currentDateTime = new Date().toLocaleString();
+
+            const db = firebase.firestore();
+            const orderRef = db.collection('orders').doc(); // Generate a unique document ID
+            await orderRef.set({
+                user_email: userEmail,
+                ordered_dish: title,
+                order_address: route.query.location,
+                order_price: price.value,
+                order_datetime: currentDateTime, // Adding the current date and time
+                // Add any other data you want to save
+            });
+            console.log('Order placed successfully!');
+        } else {
+            console.error('No user signed in.');
+        }
+    } catch (error) {
+        console.error('Error placing order:', error);
+    }
+};
+</script>
+
 
 <style scoped>
 .item {
