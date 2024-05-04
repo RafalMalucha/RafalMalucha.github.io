@@ -12,16 +12,5 @@ import './registerServiceWorker'
 // Router
 import router from './router'
 
-// Lock Orientation
-import { useScreenOrientation } from '@vueuse/core'
-const {
-    isSupported,
-    orientation,
-    angle,
-    lockOrientation,
-    unlockOrientation,
-  } = useScreenOrientation()
-lockOrientation('portrait-primary')
-
 
 createApp(App).use(router).mount('#app')

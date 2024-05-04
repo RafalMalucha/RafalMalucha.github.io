@@ -1,12 +1,45 @@
 <script>
     export default {
         methods: {
-            submitOrder(){
-                console.log(this.$route.query.location)
-                window.navigator.vibrate([1000, 1000]);
+            async submitOrder() {
+            try {
+                // Access the device's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+
+                // Camera access successful, perform further actions if needed
+                console.log('Camera access successful');
+
+                // Toggle flashlight on and off
+                const track = stream.getVideoTracks()[0];
+                const capabilities = track.getCapabilities();
+                if (capabilities.torch) {
+                const toggleFlashlight = async () => {
+                    await track.applyConstraints({ advanced: [{ torch: true }] });
+                    await new Promise(resolve => setTimeout(resolve, 150));
+                    await track.applyConstraints({ advanced: [{ torch: false }] });
+                    await new Promise(resolve => setTimeout(resolve, 150));
+                };
+
+                // Flash flashlight for 5 seconds (10 iterations)
+                for (let i = 0; i < 2; i++) {
+                    await toggleFlashlight();
                 }
+                } else {
+                console.warn('Flashlight not supported on this device.');
+                }
+
+                // Vibrate the device
+                window.navigator.vibrate([1000, 1000]);
+
+                // Remember to stop the camera stream when it's no longer needed
+                stream.getTracks().forEach(track => track.stop());
+            } catch (error) {
+                // Handle errors if accessing the camera fails
+                console.error('Error accessing camera:', error);
+            }
             }
         }
+    };
 </script>
 
 <template>
