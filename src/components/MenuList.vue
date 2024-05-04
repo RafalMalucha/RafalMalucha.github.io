@@ -3,6 +3,7 @@ import MenuListItem from '../components/MenuListItem.vue'
 import { defineComponent, ref } from 'vue';
 import app from '../firebase';
 import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'MenuList',
@@ -14,6 +15,10 @@ export default defineComponent({
     const soupItems = ref([]);
     const mainDishItems = ref([]);
     const dessertItems = ref([]);
+    const router = useRouter();
+    const handleSelectItem = (item) => {
+      router.push({ name: 'Delivery', query: { title: item.title, description: item.description, price: item.price } });
+    };
 
     const loadData = async () => {
       // Load soups
@@ -58,17 +63,19 @@ export default defineComponent({
     return {
       soupItems,
       mainDishItems,
-      dessertItems
+      dessertItems,
+      handleSelectItem,
     };
   }
 });
 </script>
 
 <template>
-  <div id="menu">
-    <div class="row">
-      <h3>Zupy</h3>
-      <MenuListItem v-for="(item, index) in soupItems" :key="'soup-' + index" :imageUrl="item.imageUrl">
+ 
+  
+ <div class="row">
+ <h3>Zupy</h3>
+      <MenuListItem v-for="(item, index) in soupItems" :key="'soup-' + index" :imageUrl="item.imageUrl" @selectItem="handleSelectItem(item)">
         <template #title>{{ item.title }}</template>
         <template #description>{{ item.description }}</template>
         <template #price>{{ item.price }}</template>
@@ -78,32 +85,26 @@ export default defineComponent({
 
     <div class="row">
       <h3>Dania główne</h3>
-      <MenuListItem v-for="(item, index) in mainDishItems" :key="'main-' + index" :imageUrl="item.imageUrl">
+      <MenuListItem v-for="(item, index) in mainDishItems" :key="'main-' + index" :imageUrl="item.imageUrl" @selectItem="handleSelectItem(item)">
         <template #title>{{ item.title }}</template>
         <template #description>{{ item.description }}</template>
         <template #price>{{ item.price }}</template>
       </MenuListItem>
     </div>
 
-
-    <div class="row">
-      <h3>Desery</h3>
-      <MenuListItem v-for="(item, index) in dessertItems" :key="'dessert-' + index" :imageUrl="item.imageUrl">
-        <template #title>{{ item.title }}</template>
-        <template #description>{{ item.description }}</template>
-        <template #price>{{ item.price }}</template>
-      </MenuListItem>
-    </div>
-
+  
+  <div class="row">
+    <h3>Desery</h3>
+    <MenuListItem v-for="(item, index) in dessertItems" :key="'dessert-' + index" :imageUrl="item.imageUrl" @selectItem="handleSelectItem(item)">
+      <template #title>{{ item.title }}</template>
+      <template #description>{{ item.description }}</template>
+      <template #price>{{ item.price }}</template>
+    </MenuListItem>
   </div>
 </template>
 
 
 <style scoped>
-#menu{
-  margin-bottom: 40px;
-}
-
 h3 {
   width: 100%;
   color: #000000;

@@ -1,14 +1,21 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
-const { imageUrl, cena } = defineProps({
-  imageUrl: String,
-  cena: String
+const props = defineProps({
+  title: String,
+  description: String,
+  price: Number,
+  imageUrl: String
 });
+const emits = defineEmits(['selectItem']);
+
+const handleItemClick = () => {
+  emits('selectItem', { title: props.title, description: props.description, price: props.price });
+};
 </script>
 
 <template>
-  <div class="col-md-3">
+  <div class="col-md-3" @click="handleItemClick">
     <div id="item" class="shadow">
       <div>
         <img class="img" :src="imageUrl" alt="Menu item photo" />
@@ -30,6 +37,7 @@ const { imageUrl, cena } = defineProps({
   </div>
 </template>
 
+
 <style scoped>
 #item {
   width: 100%;
@@ -44,6 +52,11 @@ const { imageUrl, cena } = defineProps({
   color: var(--color-black);
   text-align: center;
   height: 280px;
+}
+
+#item:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 #item>div:nth-of-type(2) {
@@ -94,9 +107,8 @@ img {
     width: 100%;
   }
 
-  .price-tag > p{
+  .price-tag>p {
     font-size: 1.2rem;
   }
 }
 </style>
-
