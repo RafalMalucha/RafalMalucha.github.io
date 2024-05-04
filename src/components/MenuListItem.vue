@@ -54,6 +54,11 @@ const handleItemClick = () => {
   height: 280px;
 }
 
+#item:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
 #item>div:nth-of-type(2) {
   margin-top: 10px;
   text-align: left;
@@ -102,9 +107,8 @@ img {
     width: 100%;
   }
 
-  .price-tag > p{
+  .price-tag>p {
     font-size: 1.2rem;
   }
 }
 </style>
-
