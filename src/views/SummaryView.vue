@@ -4,9 +4,41 @@ import SmallTitle from '../components/text/SmallTitle.vue'
 </script>
 
 <script>
-export default {
-
-}
+    export default {
+        methods: {
+            submitOrder(){
+                console.log(this.$route.query.location)
+                if ('PushManager' in window) {
+                    // Push API is supported
+                    console.log('supported')
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            console.log('granted')
+                            // navigator.serviceWorker.register('service-worker.js')
+                            // .then(registration => {
+                            //     return registration.pushManager.subscribe({
+                            //     userVisibleOnly: true,
+                            //     applicationServerKey: 'BDpzw2ZpB4lsZyrGqochvs0NuQOimM0xgJFc63cs-no1WIFL_oDDITf-P9tzgUZnHDLbuk523Y4xrOWKKSIcF9s'
+                            //     });
+                            // })
+                            // .then(subscription => {
+                            //     // Subscription successful, you can send this object to your server
+                            //     console.log('Subscription object:', subscription);
+                            // })
+                            // .catch(error => {
+                            //     console.error('Error subscribing to push notifications:', error);
+                            // });
+                        } else {
+                            // Permission denied
+                        }
+                    });
+                } else {
+                    // Push API is not supported
+                    console.log('not supported')
+                }
+            }
+        }
+    }
 </script>
 
 <template>
@@ -37,8 +69,8 @@ export default {
                 </div>
             </div>
             <div class="row">
-                <router-link :to="{ name: 'Thanks' }">
-                    <button class="btn next-button"> Złóź zamówienie </button>
+                <router-link :to="{ name: 'Thanks', query: { location: $route.query.location} }">
+                    <button class="btn next-button" @click="submitOrder"> Złóź zamówienie </button>
                 </router-link>
                 <p>Uwaga! Potwiedzonego zamówienia nie można anulować!</p>
             </div>

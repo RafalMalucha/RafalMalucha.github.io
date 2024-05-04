@@ -1,5 +1,13 @@
-<script setup>
-import BigTitle from '../components/text/BigTitle.vue'
+<script>
+    import { onMounted } from 'vue';
+    import BigTitle from '../components/text/BigTitle.vue'
+    export default {
+        setup() {
+            onMounted(() => {
+                //console.log('dupenmachen')
+            })
+        }
+    }
 </script>
 
 <template>
@@ -14,6 +22,9 @@ import BigTitle from '../components/text/BigTitle.vue'
                 </BigTitle>
                 <p>
                     Przewidywany czas dostawy: 2h
+                </p>
+                <p>
+                    {{ $route.query.location }}
                 </p>
             </div>
             <div class="row">
