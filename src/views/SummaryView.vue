@@ -44,8 +44,8 @@
 import firebase from '../firebase'; 
 import 'firebase/firestore';
 
-import ReturnArrow from '../components/ReturnArrow.vue'
-import SmallTitle from '../components/text/SmallTitle.vue'
+import ReturnArrow from '../components/ReturnArrow.vue';
+import SmallTitle from '../components/text/SmallTitle.vue';
 import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
@@ -60,6 +60,9 @@ const placeOrder = async () => {
         if (user) {
             const userEmail = user.email;
 
+            // Get the current date and time
+            const currentDateTime = new Date().toLocaleString();
+
             const db = firebase.firestore();
             const orderRef = db.collection('orders').doc(); // Generate a unique document ID
             await orderRef.set({
@@ -67,6 +70,7 @@ const placeOrder = async () => {
                 ordered_dish: title,
                 order_address: route.query.location,
                 order_price: price.value,
+                order_datetime: currentDateTime, // Adding the current date and time
                 // Add any other data you want to save
             });
             console.log('Order placed successfully!');
