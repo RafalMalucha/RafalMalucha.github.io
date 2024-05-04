@@ -1,3 +1,42 @@
+<script>
+    export default {
+        methods: {
+            submitOrder(){
+                console.log(this.$route.query.location)
+                if ('PushManager' in window) {
+                    // Push API is supported
+                    console.log('supported')
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            console.log('granted')
+                            window.navigator.vibrate([200, 200]);
+                            // navigator.serviceWorker.register('service-worker.js')
+                            // .then(registration => {
+                            //     return registration.pushManager.subscribe({
+                            //     userVisibleOnly: true,
+                            //     applicationServerKey: 'BDpzw2ZpB4lsZyrGqochvs0NuQOimM0xgJFc63cs-no1WIFL_oDDITf-P9tzgUZnHDLbuk523Y4xrOWKKSIcF9s'
+                            //     });
+                            // })
+                            // .then(subscription => {
+                            //     // Subscription successful, you can send this object to your server
+                            //     console.log('Subscription object:', subscription);
+                            // })
+                            // .catch(error => {
+                            //     console.error('Error subscribing to push notifications:', error);
+                            // });
+                        } else {
+                            // Permission denied
+                        }
+                    });
+                } else {
+                    // Push API is not supported
+                    console.log('not supported')
+                }
+            }
+        }
+    }
+</script>
+
 <template>
     <main class="background-main">
         <div class="container">
@@ -31,8 +70,8 @@
                 </div>
             </div>
             <div class="row">
-                <router-link @click="placeOrder" :to="{ name: 'Thanks' }">
-                    <button class="btn next-button"> Złóź zamówienie </button>
+                <router-link @click="placeOrder" :to="{ name: 'Thanks', query: { location: $route.query.location} }">
+                    <button class="btn next-button" @click="submitOrder"> Złóź zamówienie </button>
                 </router-link>
                 <p>Uwaga! Potwierdzonego zamówienia nie można anulować!</p>
             </div>
@@ -50,8 +89,8 @@ import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
 const route = useRoute();
-const price = ref(route.query.price || 0); // Initialize price with 0 if not provided
-
+const description = route.query.description;
+const price = ref(route.query.price || 0);
 const title = route.query.title || '';
 
 const placeOrder = async () => {
@@ -82,6 +121,7 @@ const placeOrder = async () => {
     }
 };
 </script>
+
 
 <style scoped>
 .item {

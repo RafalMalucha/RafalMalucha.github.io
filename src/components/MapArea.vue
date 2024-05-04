@@ -73,11 +73,19 @@ export default {
                 });
             }
 
-            navigator.geolocation.getCurrentPosition(success,
-                position => {},
-                error => {
-                    console.log("nie powiodło sie");
-                })
+            if ('geolocation' in navigator) {
+            // Geolocation API is supported
+                console.log('geoloc supported')
+                navigator.geolocation.getCurrentPosition(success,
+                    position => {},
+                    error => {
+                        console.log("nie powiodło sie");
+                    }
+                )
+            } else {
+            // Geolocation API is not supported
+            console.error('Geolocation is not supported by this browser.');
+            }
         });
 
         return { map, markerPosition };
