@@ -13,38 +13,10 @@ const price = route.query.price;
         methods: {
             submitOrder(){
                 console.log(this.$route.query.location)
-                if ('PushManager' in window) {
-                    // Push API is supported
-                    console.log('supported')
-                    Notification.requestPermission().then(permission => {
-                        if (permission === 'granted') {
-                            console.log('granted')
-                            window.navigator.vibrate([200, 200]);
-                            // navigator.serviceWorker.register('service-worker.js')
-                            // .then(registration => {
-                            //     return registration.pushManager.subscribe({
-                            //     userVisibleOnly: true,
-                            //     applicationServerKey: 'BDpzw2ZpB4lsZyrGqochvs0NuQOimM0xgJFc63cs-no1WIFL_oDDITf-P9tzgUZnHDLbuk523Y4xrOWKKSIcF9s'
-                            //     });
-                            // })
-                            // .then(subscription => {
-                            //     // Subscription successful, you can send this object to your server
-                            //     console.log('Subscription object:', subscription);
-                            // })
-                            // .catch(error => {
-                            //     console.error('Error subscribing to push notifications:', error);
-                            // });
-                        } else {
-                            // Permission denied
-                        }
-                    });
-                } else {
-                    // Push API is not supported
-                    console.log('not supported')
+                window.navigator.vibrate([1000, 1000]);
                 }
             }
         }
-    }
 </script>
 
 <template>
