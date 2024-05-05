@@ -4,7 +4,6 @@
     export default {
         setup() {
             onMounted(() => {
-                //console.log('dupenmachen')
             })
         }
     }
@@ -22,9 +21,6 @@
                 </BigTitle>
                 <p>
                     Przewidywany czas dostawy: 2h
-                </p>
-                <p>
-                    {{ $route.query.location }}
                 </p>
             </div>
             <div class="row">
